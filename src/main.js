@@ -10,7 +10,7 @@ Vue.filter('currency', value => {
   }
 
   let formattedValue = parseFloat(value).toFixed(2);
-  return formattedValue.toString().replace(/\B(?=(\d{3})+(?!\B))/g, " ");
+  return formattedValue.toString().replace(/\B(?=(\d{3})+(?=\b))/g, " ");
 });
 
 new Vue({
