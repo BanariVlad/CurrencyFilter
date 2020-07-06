@@ -4,13 +4,13 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
-Vue.filter('currency', value => {
+Vue.filter('currency', (value, precision = 0) => {
   if (isNaN(Number(value)) || value === "") {
     return "0.00";
   }
 
   return parseFloat(value)
-    .toFixed(2)
+    .toFixed(precision)
     .toString()
     .replace(/\B(?=(\d{3})+(?=\b))/g, " ")
 });
